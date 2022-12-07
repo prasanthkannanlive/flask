@@ -1,4 +1,3 @@
 Flask==2.0.2
 flask_cors
-##gevent
-Gunicorn
+gunicorn
