@@ -1,5 +1,6 @@
 from datetime import datetime
 from flask import Flask, render_template, request, redirect, url_for, send_from_directory, jsonify
+from gevent.pywsgi import WSGIServer
 from flask_cors import CORS
 
 from email.message import EmailMessage
@@ -69,4 +70,6 @@ def hello():
 
 
 if __name__ == '__main__':
-   app.run()
+   #app.run()
+   http_server = WSGIServer(('',5000), app)
+   http_server.serve_forever()
